@@ -2,7 +2,7 @@
 import {IS_IOS, IS_EASTMONEY} from './useragent'
 import {UPLOAD_FILE} from './emapp'
 const debug = process.env.NODE_ENV !== 'production'
-const baseUrl = debug ? 'http://lvbqas.eastmoney.com' : ''
+const baseUrl = debug ? '' : ''
 
 export const uploadfile = ({url, data, succ}) => {
   var inputFile = document.querySelector('#uploadfile')
