@@ -7,9 +7,7 @@ export const GET_LOGIN_INFO = (str) => {
   let strCB = '{"callbackname":"' + str + '"}'
   try {
     if (IS_IOS) {
-      window.location = 'emH5GetLoginStatus:' + strCB
     } else {
-      window.eastmoney.emH5GetLoginStatus(strCB)
     }
   } catch (e) {
   }
@@ -22,68 +20,12 @@ export const GET_DEVICE_INFO = (str) => {
   let strCB = '{"callbackname":"' + str + '"}'
   try {
     if (IS_IOS) {
-      window.location = 'getDeviceInfo:' + strCB
     } else {
-      window.eastmoney.getDeviceInfo(strCB)
     }
   } catch (e) {
   }
 }
 
-/*
-显示分享
-*/
-export const SHOW_SHARE = (strdhlfx) => {
-  try {
-    if (IS_IOS) {
-      window.location = 'emH5ShareNeed:' + strdhlfx
-    } else {
-      window.eastmoney.emH5ShareNeed(strdhlfx)
-    }
-  } catch (e) {
-  }
-}
-
-/*
-设置APP标题
-*/
-export const SET_TITLE = (txt) => {
-  var strCB = '{"title1":"' + txt + '"}'
-  try {
-    if (IS_IOS) {
-      window.location = 'emH5Title:' + strCB
-    } else {
-      window.eastmoney.emH5Title(strCB)
-    }
-  } catch (e) {
-  }
-}
-/*
-打开我的主页
-*/
-export const OPEN_LIVE_ME = () => {
-  var s = 'emlive://haitunlive.com/home?page=home_me'
-  var a = 'emlive://haitunlive.com/first?params={"destClass":"home","page":"home_me"}'
-  eventOpenLive(s, a)
-}
-
-/*
-打开直播
-*/
-export const OPEN_LIVE = () => { // 发布直播页面
-  var s6 = 'emlive://jinyuzhibo.com/liverelease'
-  var a6 = 'emlive://haitunlive.com/first?params={"destClass":"live","segueParams":{"channelLocation":"xx.x,yy.y","extraLiveType":0}}'
-  eventOpenLive(s6, a6)
-}
-
-/*
-跳直播
-*/
-export const OPEN_LIVE_BYID = (channelId) => { // 跳直播
-  var s5 = 'emlive://jinyuzhibo.com/live?channel_id=' + channelId + '&extra_live_type=1'
-  var a5 = 'emlive://haitunlive.com/first?params={"destClass":"live","segueParams":{"channelId":"' + channelId + '","extraLiveType":1}}'
-  eventOpenLive(s5, a5)
-}
 
 /*
 显示分享
@@ -98,7 +40,6 @@ export const UPLOAD_FILE = ({url, autoCamera, succ}) => {
         succ(json)
       }
       var params = '{"uploadurl":"' + url + '","autoCamera":"' + autoCamera + '","callback":"uploadCallBack"}'
-      window.eastmoney.emH5UploadPhoto(params)
     }
   } catch (e) {
   }
@@ -108,27 +49,25 @@ export const UPLOAD_FILE = ({url, autoCamera, succ}) => {
 
 function eventOpenLive(s, a) {
   if (IS_IOS) {
-    var iosstr = '{"callbackname":"callbackOpen","appname":"haitunlive://","scheme":"' + s + '"}'
-    window.location = "emH5toOpenApp:" + iosstr
+    var iosstr = '{"callbackname":"callbackOpen","appname":"","scheme":"' + s + '"}'
   } else {
 
     var bytes = a.split('params=')
     bytes[1] = encodeURIComponent(base64encode(bytes[1]))
     var userAgent = navigator.userAgent.toLowerCase()
-    var appname = 'com.eastmoney.haitunlive'
-    // if (userAgent.indexOf("eastmoney_eastmoney") != -1 || userAgent.indexOf("eastmoney_android") != -1) {
-    //   appname = "com.eastmoney.android.berlin"
-    // } else if (userAgent.indexOf("eastmoney_guba") != -1) {
-    //   appname = "com.eastmoney.android.gubaproj"
+    var appname = ''
+    // if (userAgent.indexOf("") != -1 || userAgent.indexOf("") != -1) {
+    //   appname = ""
+    // } else if (userAgent.indexOf("") != -1) {
+    //   appname = ""
     // }
-    // else if (userAgent.indexOf("eastmoney_cjtt") != -1) {
-    //   appname = "com.eastmoney.android.tokyo"
+    // else if (userAgent.indexOf("") != -1) {
+    //   appname = ""
     // }
-    // else if (userAgent.indexOf("eastmoney_emlive") != -1 || userAgent.indexOf("eastmoney_live") != -1) {
-    //   appname = "com.eastmoney.haitunlive"
+    // else if (userAgent.indexOf("") != -1 || userAgent.indexOf("") != -1) {
+    //   appname = ""
     // }
     var androidstr = '{"callbackname":"callbackOpen","appname":"' + appname + '","scheme":"' + bytes[0] + 'params=' + bytes[1] + '","isLocal":"false"}';
-    eastmoney.emH5toOpenApp(androidstr)
   }
 }
 
@@ -183,7 +122,7 @@ window.callbackOpen = function (returnValue){
     if (IS_IOS) {
 
     } else {
-      window.location.href='http://zhibo.eastmoney.com/'
+      window.location.href=''
     }
   }
 }
