@@ -1,11 +1,11 @@
 
 /*
-是否是浪客直播APP
+是否是
 */
 export const IS_LIVE = navigator.userAgent.toLowerCase().indexOf('') !== -1 || navigator.userAgent.toLowerCase().indexOf('') !== -1
 
 /*
-是否是东财APP
+是否是
 */
 export const IS_EASTMONEY = navigator.userAgent.toLowerCase().indexOf('') !== -1
 
