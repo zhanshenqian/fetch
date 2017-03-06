@@ -1,7 +1,7 @@
 /**
  * @param {JSONData} json
- * @param {ReportTitle} title
- * @param {TableHeader} header
+ * @param {ReportTitle} title 
+ * @param {TableHeader} header ‘时间，日期’
  */
 /* eslint-disable */
 export const JsonToCSV = (JSONData, ReportTitle, TableHeader) => {
