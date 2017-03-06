@@ -1,5 +1,4 @@
 /**
- * Set Date to string
  * @param {JSONData} json
  * @param {ReportTitle} title
  * @param {TableHeader} header
