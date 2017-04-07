@@ -54,3 +54,30 @@ export const uploadfile = ({url, data, succ}) => {
 }
 
 export const other = ''
+
+// 上传文件
+// uploadfile () {
+//   var _this=this;
+//   var fileObj=$("#uploadfile")[0];
+//   var src = window.URL.createObjectURL(fileObj.files[0]);
+
+//   $.ajaxFileUpload({
+//     fileElementId: "uploadfile",
+//     url: "" ,
+//     dataType: 'json',
+//     // data: ops.data,
+//     success: function (json, textStatus) {
+//       if(json.result==0){
+//         $(".show-pic").attr("src",src);
+//         _this.images=json.path;
+//         _this.file="";
+//       } 
+//     },
+//     error: function (data, textStatus, errorThrown) {
+//       alert("上传失败");
+//     },
+//     complete: function (XMLHttpRequest, textStatus) {
+
+//     }
+//   })
+// }
