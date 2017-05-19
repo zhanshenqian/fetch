@@ -1,7 +1,8 @@
 /**
+ * Set Date to string
  * @param {JSONData} json
- * @param {ReportTitle} title 
- * @param {TableHeader} header ‘时间，日期’
+ * @param {ReportTitle} title
+ * @param {TableHeader} header
  */
 /* eslint-disable */
 export const JsonToCSV = (JSONData, ReportTitle, TableHeader) => {
@@ -22,9 +23,9 @@ export const JsonToCSV = (JSONData, ReportTitle, TableHeader) => {
   let filename = ReportTitle ? ReportTitle.replace(/[ ]/g, '_') : 'Report'
   let link = document.createElement('a')
   document.body.appendChild(link)
-  let csv = CSV
-  let blob = new Blob([csv], { type: 'text/csv' })
-  let csvUrl = window.webkitURL.createObjectURL(blob)
+  let csv = "\ufeff" + CSV
+  let blob = new Blob([csv], { type: 'text/csv,charset=utf-8' })
+  let csvUrl = window.URL.createObjectURL(blob)
   link.download = filename + '.csv'
   link.href = csvUrl
   link.click()
